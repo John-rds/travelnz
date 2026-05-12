@@ -1,0 +1,346 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    min-height: 100vh; /*sets a minimum height for the page */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 3rem;
+}
+
+/* gives a smooth transition between pages */
+@view-transition {
+  navigation: auto;
+}
+
+/* Navigation */
+.navbar-custom {
+    background-color: black;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(29, 27, 27);
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav {
+    display: flex; 
+    gap: 25px;
+}
+/* changes colour when hovering in navigation links */
+.navbar-nav .nav-link:hover {
+    color: #42ff00;
+}
+/* keeps the currently opened page colour as green */
+.navbar-custom .navbar-nav .nav-link.active {
+    color: #42ff00;
+    font-weight: 500;
+}
+
+a {
+    color: #000;
+    text-decoration: none; /* removes the underline on links */
+}
+/* Center navigation items on mobile/hamburger menu */
+@media (max-width: 768px) {
+    .navbar-nav {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar-nav .nav-link {
+        text-align: center;
+    }    
+    /* center the theme button */
+    .form-check.form-switch {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+}
+
+/* logo custom class */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 800;
+    transition: 0.5s ease;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+/* gives a small animation for the logo where it expands it when hovering */
+.logo:hover { 
+    transform: scale(1.1); 
+}
+
+.logo-icon {
+    width: 210px;
+    height: 40px;
+    margin-right: 6px;
+    background-image: url('../images/logo_white.png'); /* using the image here for the logo so it does not get cluttered up in the html pages */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* end of logo custom class */
+
+/* Main content */
+/* using clamp to set a min-max size of text, margin, padding*/
+.center h1 {
+    font-size: clamp(2rem, 6vw, 5rem);
+    margin-top: clamp(2rem, 8vw, 8rem);
+    background-color: var(--heading-bg); /* use for when changing the theme of the page */
+    color: var(--heading-color);    /* use for when changing the theme of the page */
+    padding: clamp(0.75rem, 1.5vw, 1.25rem);
+    border-radius: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.center h2 {
+    font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+    margin-top: clamp(1rem, 3vw, 2rem);
+    background-color: var(--heading-bg); /* use for when changing the theme of the page */
+    color: var(--heading-color);    /* use for when changing the theme of the page */
+    padding: clamp(0.5rem, 1.2vw, 0.9rem);
+    border-radius: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+/* aligns text to the left mainly use on title */
+.left {
+    text-align: left;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+/* use for the background of the about page descriptions */
+.card-custom {
+    background-color: var(--card-bg); /* use for when changing the theme of the page */
+    border-radius: 15px;
+    padding: 15px;
+}
+/* use for compressing the sections mainly on explore page to give the page a bit of space on the side */
+.custom-padding {
+    padding-right: 150px; 
+    padding-left: 150px;
+}
+/* mainly use for the north and south page title's for making it viable for mobile devices */
+.custom-bg {
+    background-color: #000;
+    color: white;
+    border-radius: 80px;
+    margin: 50px auto 0;
+    padding: 1rem 1.5rem;
+    width: clamp(280px, 90vw, 900px);
+    white-space: nowrap;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    overflow-x: auto;
+}
+/* use for contact page form when changing the theme of the page */
+.form-color {
+    background-color: var(--form-bg);
+    color: var(--form-color);
+}
+/* custom css for the images in the explore page grid pattern */
+.hero-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+        
+.hero-card:hover img {
+    transform: scale(1.05);
+}
+/* class use for attaching a small card at the top of the image in explore page */       
+.card-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    padding: 4px 6px;
+    font-size: clamp(1rem, 2vw, 20px);
+    border-radius: 4px;
+}
+
+/* styling for section titles with bold text and bottom border */
+.section-title {
+    background: #fff;
+    padding: 15px 20px;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+/* make grid stack vertically */
+.col-lg-5.col-md-6 {
+    display: flex;
+    flex-direction: column;
+}
+/* fills available height */
+.bg-white.border {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+        
+.bg-white.border a {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* class is use on about page images */
+.custom-img {
+    height: 300px;
+    width: 100%;
+    object-fit: fill;
+    border-radius: 25px;
+}
+/* explore page images custom css for better fit */
+.explore-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+/* back link custom colour for the page theme */
+.back-text {
+    color: var(--paragraph-color);
+}
+/* main page min-max font size for different screen sizes */
+main h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+main h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+main p,
+main li {
+    font-size: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+/* seperates the paragraphs or section of the about page */
+.line {
+    color: var(--paragraph-color); /* use for when changing the theme of the page */
+    border-bottom: 3px solid;
+    margin: 0 130px;
+}
+
+/* Button code */
+.button-group {
+    display: flex;
+    justify-content: center;
+	gap: 150px;
+	margin-top: 50px;
+    margin-bottom: 4rem;
+}
+
+.button {
+    display: inline-block;
+    min-width: 140px;
+    width: 170px;
+    padding: 10px 15px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 6px #999;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-colour-1 { 
+    background-color: #42ff00; 
+    color: black; 
+}
+.button-colour-2 { 
+    background-color:var(--button-bg) ; /* use for when changing the theme of the page */
+    color: var(--button-color); /* use for when changing the theme of the page */
+}
+
+.button:hover {
+    background-color: black;
+    color: #42ff00;
+}
+
+.button:active {
+    background-color: black;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-top: 1px solid rgb(29, 27, 27);
+    margin-top: 3rem;
+    padding-top: 2rem;
+}
+
+/* light theme/dark theme custom colours */
+/* Light mode (default) */
+:root {
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #111111;
+
+    --card-bg: #f8f8f8;
+    --heading-bg: white; /* heading custom background colour */
+    --heading-color: black; /* heading custom colour */
+    --paragraph-color: black; /* line which seperates the paragraphs in about page colour for light theme */
+    --button-bg: white; 
+    --button-color: black; 
+    --form-bg: white ;
+    --form-color: black;
+}
+
+/* Dark mode */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #121212; /* not using pure black to reduce eye strain */
+    --bs-body-color: #eeeeee;
+
+    --card-bg: rgb(29, 27, 27);
+    --heading-bg: #121212; /* heading custom background colour */
+    --heading-color: white; /* heading custom colour */
+    --paragraph-color: white; /* line which seperates the paragraphs in about page colour for dark theme */
+    --button-bg: #121212;
+    --button-color: white;
+    --form-bg: #121212;
+    --form-color: white;
+}
+
+/* custom colour for the button switch for light mode/dark mode*/
+.form-check-input#btnSwitch {
+    accent-color: #42ff00;
+    border-color: #999;
+}
+
+[data-bs-theme="dark"] .form-check-input#btnSwitch {
+    accent-color: #42ff00;
+    border-color: #555;
+}
